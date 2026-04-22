@@ -19,6 +19,7 @@ Install Visual Studio Code: https://code.visualstudio.com/
 
 Install the WSL and Dev Container extensions in Visual Studio Code:
 https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+
 https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 
 ## Setup NodeJS app using Dev Containers in WSL
