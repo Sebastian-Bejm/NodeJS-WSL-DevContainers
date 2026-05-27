@@ -1,8 +1,8 @@
 # NodeJS-WSL-DevContainers
 
 References: 
-https://medium.com/@ashkash.aishwarya/how-to-install-nodejs-in-wsl-6129afb2d3e3 
 https://code.visualstudio.com/docs/devcontainers/create-dev-container
+https://code.visualstudio.com/docs/devcontainers/create-dev-container#_dockerfile
 https://code.visualstudio.com/docs/nodejs/nodejs-tutorial 
 
 ## Pre-requisities
@@ -21,34 +21,6 @@ Install the WSL and Dev Container extensions in Visual Studio Code:
 https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
 
 https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
-
-## Setup NodeJS app using Dev Containers in WSL
-
-First make sure that curl is installed in WSL. This can be done by writing the following command in wsl
-
-```curl — help```
-
-### Install NVM
-
-#### Install NVM using curl
-
-```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash```
-
-After the NVM installation process is complete you can verify its status by running the following command.
-
-```command -v nvm```
-
-Which will output the following if installation was successful.
-
-```nvm```
-
-### Installing NodeJS using NVM 
-
-```nvm install node```
-
-Verify node installation by running
-
-```node --version```
 
 ### Create a Dev Container
 
@@ -76,8 +48,18 @@ After the .devcontainer folder and the devcontainer.json file is added to the pr
 
 ![Dev Containers: Open Folder in Container](images/image-5.png)
 
+### Create the Dockerfile
+
+Create a file called "Dockerfile" and copy the line from the devcontainer.json file as the image to use as a base.
+
+![Dockerfile](images/dockerfile.png)
+
+### Editting the devcontainer file
+
+Since the Dockerfile now uses the image, replace the "image" line with this: "build": { "dockerfile": "Dockerfile" }
+
 ### Running Hello World
 
-In the WSL terminal or in VSCode's integrated terminal, type 
+In VSCode's integrated terminal, type 
 ```node app.js```
-and it should print out Hello World.
+to confirm that the app runs in the localized DevContainer environment in VSCode.
